@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     if (fetching) {
       console.log("fetching")
-      axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=20&_page=${currentpage}`)
+      axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=10&_page=${currentpage}`)
         .then(response => {
           setPhotos([...photos,  ...response.data])
           setCurrentpage(prevState => prevState + 1)
@@ -43,7 +43,7 @@ function App() {
                 <div className="card-body gap-2 d-flex">
                   <img src={photo.thumbnailUrl} alt="" />
                   <div> 
-                    <h4>{photo.id}. {photo.title}</h4>
+                    <h4>{photo.title}</h4>
                   </div>
                 </div>
               </div>
